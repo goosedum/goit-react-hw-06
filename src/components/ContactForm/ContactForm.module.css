@@ -3,8 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
-    border-radius: 8px;
     padding: 20px;
     margin-left: 16px;
     width: 360px;
@@ -33,7 +31,7 @@
 }
 
 .inputForm:focus {
-    border-color: #478100;
+    border-color: #000000;
     outline: none;
 }
 
