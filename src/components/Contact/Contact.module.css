@@ -1,16 +1,31 @@
-.name,
-.phone {
-   display: flex;
-   align-items: center;
-   column-gap: 10px;
+.contactItem{
+    width: 200px;
+    height: 36px;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.contactItem:not(:last-child) {
+    
+    margin-bottom: 20px;
 }
 
-.button {
-   background-color: aquamarine;
-   border: none;
-   transition: 250ms ease-in;
+.contactBtnDel{
+width: 64px;    
+height: 28px;
+border: 2px solid grey;
+border-radius: 4px;
+background-color: aliceblue;
+font-size: 14px;
+cursor: pointer;
 }
 
-.button:hover {
-   background-color: rgba(74, 231, 179, 0.963);
+.dataText{
+font-family: 'Arial';
+font-size: 14px;
 }

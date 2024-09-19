@@ -1,39 +1,29 @@
-import { FaUserCircle } from 'react-icons/fa';
-import { AiFillPhone } from 'react-icons/ai';
-
+import { BsPersonFill } from "react-icons/bs";
+import { FaPhone } from "react-icons/fa6";
 import css from './Contact.module.css';
-
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsSlice';
-
-const Contact = ({ contactId, name, phone }) => {
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice"; 
+import PropTypes from 'prop-types';
+const Contact = ({ contact }) => {
   const dispatch = useDispatch();
-  
-  const handleClick = contactId => {
-    // 1. Створення команди
-    const action = deleteContact(contactId);
-    // 2. Доставка команди в Store
-    dispatch(action);
-  };
-
   return (
-    <>
-      <div className={css.profile}>
-        <p className={css.name}>
-          <FaUserCircle />
-          {name}
-        </p>
-        <a href={`tel:${phone}`} className={css.phone}>
-          <AiFillPhone />
-          {phone}
-        </a>
+    <li className={css.contactItem}>
+      <div>
+        <span className={css.dataText}><BsPersonFill /> {contact.name}</span><br />
+        <span className={css.dataText}><FaPhone /> {contact.number}</span>
       </div>
+          
+      <button type="button" className={css.contactBtnDel} onClick={() => dispatch(deleteContact(contact.id))}>Delete</button>
+    </li>
+  )
+};
 
-      <button onClick={() => handleClick(contactId)} className={css.button}>
-        Delete
-      </button>
-    </>
-  );
+Contact.propTypes = {
+  contact: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  }),
 };
 
 export default Contact;
