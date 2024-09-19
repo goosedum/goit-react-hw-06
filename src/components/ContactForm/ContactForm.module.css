@@ -29,11 +29,11 @@
 }
 
 .inputForm:hover {
-    border-color: #007bff;
+    border-color: #1c1c1c;
 }
 
 .inputForm:focus {
-    border-color: #007bff;
+    border-color: #478100;
     outline: none;
 }
 
